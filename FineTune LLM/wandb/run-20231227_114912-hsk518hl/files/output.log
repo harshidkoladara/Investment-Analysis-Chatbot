@@ -1,0 +1,210 @@
+  0%|                                                                                                                               | 0/595 [00:00<?, ?it/s]/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+
+
+
+
+
+
+
+
+
+  2%|█▉                                                                                                                  | 10/595 [09:23<8:59:04, 55.29s/it]
+
+
+
+
+
+
+
+
+
+
+  3%|███▉                                                                                                                | 20/595 [18:38<8:51:15, 55.44s/it]
+
+
+
+
+
+
+
+
+
+
+  5%|█████▊                                                                                                              | 30/595 [27:40<8:27:02, 53.85s/it]
+
+
+
+
+
+
+
+
+
+
+  7%|███████▊                                                                                                            | 40/595 [36:46<8:31:28, 55.29s/it]
+
+
+
+
+
+
+
+
+
+  8%|█████████▌                                                                                                          | 49/595 [44:54<8:16:10, 54.52s/it]
+
+
+
+
+
+
+
+
+
+
+ 10%|███████████▌                                                                                                        | 59/595 [53:44<7:47:58, 52.39s/it]
+ 10%|███████████▋                                                                                                        | 60/595 [54:42<8:01:41, 54.02s/it]
+  0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+
+  warnings.warn(
+
+
+
+
+
+
+
+
+ 12%|█████████████▏                                                                                                    | 69/595 [1:02:55<7:57:07, 54.42s/it]
+
+
+
+
+
+
+
+
+
+
+
+ 13%|███████████████▎                                                                                                  | 80/595 [1:13:05<7:52:47, 55.08s/it]
+
+
+
+
+
+
+
+
+
+ 15%|█████████████████                                                                                                 | 89/595 [1:21:04<7:32:24, 53.65s/it]
+
+
+
+
+
+
+
+
+
+
+ 17%|██████████████████▉                                                                                               | 99/595 [1:30:07<7:22:29, 53.53s/it]
+
+
+
+
+
+
+
+
+
+
+
+ 18%|████████████████████▉                                                                                            | 110/595 [1:39:55<7:08:46, 53.04s/it]
+
+
+
+
+
+
+
+
+
+
+ 20%|██████████████████████▊                                                                                          | 120/595 [1:48:58<7:15:46, 55.05s/it]
+{'loss': 0.5051, 'learning_rate': 5e-05, 'epoch': 1.01}
+  0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/generation/utils.py:1411: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed soon, in a future version. Please use a generation configuration file (see https://huggingface.co/docs/transformers/main_classes/text_generation )
+  warnings.warn(                                                                                                                     | 0/50 [00:00<?, ?it/s]
+/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/generation/utils.py:1254: UserWarning: Using the model-agnostic default `max_length` (=20) to control thegeneration length. We recommend setting `max_new_tokens` to control the maximum length of the generation.
+  warnings.warn(
+/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/generation/utils.py:1262: UserWarning: Input length of input_ids is 917, but `max_length` is set to 20. This can lead to unexpected behavior. You should consider increasing `max_new_tokens`.
+  warnings.warn(
+                                                                                                                                                            /home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/generation/utils.py:1262: UserWarning: Input length of input_ids is 1724, but `max_length` is set to 20. This can lead to unexpected behavior. You should consider increasing `max_new_tokens`.
+  warnings.warn(
+  2%|██▍                                                                                                                     | 1/50 [00:03<03:00,  3.67s/it]/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/generation/utils.py:1262: UserWarning: Input length of input_ids is 822, but `max_length` is set to 20. This can lead to unexpected behavior. You should consider increasing `max_new_tokens`.
+  warnings.warn(
+  4%|████▊                                                                                                                   | 2/50 [00:10<04:12,  5.25s/it]/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/generation/utils.py:1262: UserWarning: Input length of input_ids is 2407, but `max_length` is set to 20. This can lead to unexpected behavior. You should consider increasing `max_new_tokens`.
+  warnings.warn(
+  6%|███████▏                                                                                                                | 3/50 [00:17<04:27,  5.70s/it]
+Traceback (most recent call last):
+  File "train_lora.py", line 238, in <module>
+    main(args)
+  File "train_lora.py", line 206, in main
+    trainer.train()
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/trainer.py", line 1555, in train
+    return inner_training_loop(
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/trainer.py", line 1929, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/trainer.py", line 2256, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/trainer.py", line 3000, in evaluate
+    self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, output.metrics)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/trainer_callback.py", line 388, in on_evaluate
+    return self.call_event("on_evaluate", args, state, control, metrics=metrics)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/trainer_callback.py", line 406, in call_event
+    result = getattr(callback, event)(
+  File "train_lora.py", line 60, in on_evaluate
+    res = model.generate(
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/peft/peft_model.py", line 975, in generate
+    outputs = self.base_model.generate(**kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/generation/utils.py", line 1596, in generate
+    return self.greedy_search(
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/generation/utils.py", line 2444, in greedy_search
+    outputs = self(
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 809, in forward
+    outputs = self.model(
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 697, in forward
+    layer_outputs = decoder_layer(
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 413, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 351, in forward
+    attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
+  File "/home/ava/hkoladara/env/lib/python3.8/site-packages/torch/nn/functional.py", line 1858, in softmax
+    ret = input.softmax(dim, dtype=dtype)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 708.00 MiB. GPU 0 has a total capacty of 7.80 GiB of which 365.69 MiB is free. Process 523182 has 256.00 MiB memory in use. Including non-PyTorch memory, this process has 4.91 GiB memory in use. Process 616799 has 2.27 GiB memory in use. Of the allocated memory 2.77 GiB is allocated by PyTorch, and 1.18 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

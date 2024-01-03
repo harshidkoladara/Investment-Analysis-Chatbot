@@ -1,0 +1,188 @@
+{
+    "os": "Linux-5.4.0-167-generic-x86_64-with-glibc2.2.5",
+    "python": "3.8.18",
+    "heartbeatAt": "2023-12-27T10:49:12.648255",
+    "startedAt": "2023-12-27T10:49:12.080813",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--run_name",
+        "dow30-llama2-custom",
+        "--base_model",
+        "llama2",
+        "--dataset",
+        "dow30v3-20200101-20231220-llama-data",
+        "--max_length",
+        "1024",
+        "--batch_size",
+        "1",
+        "--gradient_accumulation_steps",
+        "16",
+        "--learning_rate",
+        "5e-5",
+        "--num_epochs",
+        "5",
+        "--log_interval",
+        "10",
+        "--warmup_ratio",
+        "0.03",
+        "--scheduler",
+        "constant",
+        "--evaluation_strategy",
+        "steps",
+        "--ds_config",
+        "config.json"
+    ],
+    "state": "running",
+    "program": "train_lora.py",
+    "codePathLocal": "train_lora.py",
+    "codePath": "train_lora.py",
+    "host": "ava",
+    "username": "ava",
+    "executable": "/home/ava/hkoladara/env/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2170.1238260869563,
+        "min": 2200.0,
+        "max": 3500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1961.494,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2190.05,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2113.619,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2188.126,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1973.09,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2013.81,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1948.257,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2186.48,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1888.014,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2195.052,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2065.541,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2189.227,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2448.528,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2422.934,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2148.936,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2181.338,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1961.398,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1917.675,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1849.305,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2101.326,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2473.22,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2943.578,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2969.498,
+            "min": 2200.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 915.8154449462891,
+            "used": 578.6130485534668
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 2070",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2070",
+            "memory_total": 8589934592
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2070",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 62.72813034057617
+    }
+}
