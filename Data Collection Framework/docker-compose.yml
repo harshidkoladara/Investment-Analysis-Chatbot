@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: data-collection-framework
+    volumes:
+      - .:/app
+    ports:
+      - "8000:80"
+    restart: always
+
+
+# docker build -t data-collection-framework .
+# docker run -it --rm --name data-collection-framework -v "$(pwd):/app" data-collection-framework /bin/bash
