@@ -13,9 +13,16 @@ from peft import PeftModel
 from collections import defaultdict
 from datetime import date, datetime, timedelta
 from transformers import AutoTokenizer, AutoModelForCausalLM, TextStreamer
+from dotenv import load_dotenv
 
+# Load environment variables
+load_dotenv()
 
-finnhub_client = finnhub.Client(api_key="clsplg9r01qv99446bogclsplg9r01qv99446bp0")
+finnhub_api_key = os.getenv("FINNHUB_API_KEY")
+if not finnhub_api_key:
+    print("Warning: FINNHUB_API_KEY is not set. API requests to Finnhub may fail.")
+
+finnhub_client = finnhub.Client(api_key=finnhub_api_key)
 
 base_model = AutoModelForCausalLM.from_pretrained(
     'NousResearch/Llama-2-7b-chat-hf',

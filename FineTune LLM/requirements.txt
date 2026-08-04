@@ -1,0 +1,22 @@
+# Core ML / Deep Learning
+torch>=2.0.0
+transformers>=4.36.0
+peft==0.7.1
+bitsandbytes==0.42.0
+datasets>=2.14.0
+deepspeed>=0.12.0
+
+# Data & Stock Metrics API
+pandas>=2.0.0
+yfinance>=0.2.30
+finnhub-python>=2.4.0
+scikit-learn>=1.2.0
+rouge-score>=0.1.2
+
+# System & Monitoring
+pynvml>=11.5.0
+tqdm>=4.65.0
+python-dotenv>=1.0.0
+
+# Web Interface
+gradio>=4.0.0

@@ -7,7 +7,7 @@ from torch.utils.tensorboard import SummaryWriter
 import datasets
 import torch
 import os
-os.environ['TOKENIZERS_PARALLELISM'] = 'true'
+from dotenv import load_dotenv
 import re
 import sys
 import wandb
@@ -27,9 +27,18 @@ from peft import (
     set_peft_model_state_dict,   
 )
 
-# Replace with your own api_key and project name
-os.environ['WANDB_API_KEY'] = '8507c806d9b127aa0300dac1a676c54b9725f73e'
-os.environ['WANDB_PROJECT'] = 'fingpt-forecaster'
+# Load environment variables
+load_dotenv()
+
+os.environ['TOKENIZERS_PARALLELISM'] = 'true'
+
+# Set W&B configurations from environment variables if defined
+if os.getenv('WANDB_API_KEY'):
+    os.environ['WANDB_API_KEY'] = os.getenv('WANDB_API_KEY')
+if os.getenv('WANDB_PROJECT'):
+    os.environ['WANDB_PROJECT'] = os.getenv('WANDB_PROJECT')
+else:
+    os.environ['WANDB_PROJECT'] = 'fingpt-forecaster'
 
 
 class GenerationEvalCallback(TrainerCallback):
