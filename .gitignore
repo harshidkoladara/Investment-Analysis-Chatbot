@@ -2,3 +2,5 @@
 *.pt
 *.bin
 *.arrow
+.vscode
+**/*.pyc
