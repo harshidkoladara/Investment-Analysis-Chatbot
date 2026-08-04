@@ -29,35 +29,40 @@ class CollectAnnouncements(AnnouncementDownloader):
     def _get_entity_name(self, stock = "AAPL"):
         url = "https://efts.sec.gov/LATEST/search-index"
         headers = {
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+            "User-Agent": "InvestmentAnalysisFramework/1.0 (contact@example.com) ResearchAgent/1.0"
         }
         params = {
-            "keysTyped":stock
+            "keysTyped": stock
         }
         resp = self._request_get(url = url, headers= headers, params= params)
         if resp is None:
-            raise ConnectionError("Can't get entity name")
+            raise ConnectionError("Can't get entity name from SEC EDGAR. Please verify connection/User-Agent policy.")
         
-        res = json.loads(resp.text)
-        item_list = res["hits"]["hits"]
-        entityName_list = []
-        for item in item_list:
-            c_name_one = item["_source"]["entity_words"]
-            c_name_two = item["_id"].zfill(10)
-            entityName = f"{c_name_one} (CIK {c_name_two})"
-            entityName_list.append(entityName)
-        
-        entityName = entityName_list[0]
+        try:
+            res = json.loads(resp.text)
+            item_list = res["hits"]["hits"]
+            if not item_list:
+                raise ValueError(f"No company entries matching symbol {stock} found on SEC EDGAR.")
+            entityName_list = []
+            for item in item_list:
+                c_name_one = item["_source"]["entity_words"]
+                c_name_two = item["_id"].zfill(10)
+                entityName = f"{c_name_one} (CIK {c_name_two})"
+                entityName_list.append(entityName)
+            
+            return entityName_list[0]
+        except Exception as e:
+            raise RuntimeError(f"Failed parsing SEC EDGAR entity search response: {e}")
 
-        return entityName
     
     def _gather_one_page(self, start_date, end_date, page, entityName = "Apple Inc. (AAPL) (CIK 0000320193)", delay = 0.01):
         from_ = (page-1)*100
         url = "https://efts.sec.gov/LATEST/search-index"
         headers = {
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+            "User-Agent": "InvestmentAnalysisFramework/1.0 (contact@example.com) ResearchAgent/1.0"
         }
         params = {
+
             "dateRange": "all",
             "entityName": entityName,
             "startdt": start_date,

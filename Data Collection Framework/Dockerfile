@@ -1,21 +1,28 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8.8-slim
+FROM python:3.11-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libssl-dev libffi-dev build-essential gcc && \
+    python3 -m pip install --upgrade pip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install any needed packages specified in requirements.txt
-RUN apt-get update
-RUN apt-get install -y libssl-dev libffi-dev
-RUN python3 -m pip install --upgrade pip
+# Copy requirements file first to optimize layer caching
+COPY requirements.txt /app/
+
+# Install python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Copy the rest of the application
+COPY . /app
 
-# Run python script when the container launches
-# CMD ["python", "./main.py"]
-CMD ["tail", "-f", "/dev/null"]
+# Run the CLI tool with RSS as default source when container starts
+CMD ["python", "main.py", "--source", "rss"]

@@ -1,3 +1,4 @@
+import os
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -7,15 +8,20 @@ import finnhub
 import pandas as pd
 from tqdm import tqdm
 from lxml import etree
+import logging
 
 from news.base import NewsDownloader
 
+logger = logging.getLogger("DataCollectionFramework.CollectNews")
 
 class CollectNews(NewsDownloader):
     def __init__(self, args = {}):
         super().__init__(args)
-        assert "token" in args.keys(), "Please input your finnhub token."
-        self.finnhub_client = finnhub.Client(api_key=args["token"])
+        token = args.get("token") or os.getenv("FINNHUB_API_KEY")
+        if not token:
+            raise ValueError("Please provide a Finnhub API token either via args['token'] or the FINNHUB_API_KEY environment variable.")
+        self.finnhub_client = finnhub.Client(api_key=token)
+
 
     def download_date_range_stock(self, start_date, end_date, stock = "AAPL"):
         self.date_list = pd.date_range(start_date,end_date)
